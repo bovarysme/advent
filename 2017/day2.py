@@ -1,6 +1,6 @@
 def difference(line):
     mini, maxi = line[0], line[0]
-    for value in line:
+    for value in line[1:]:
         if value < mini:
             mini = value
 
@@ -10,23 +10,22 @@ def difference(line):
     return maxi - mini
 
 
-def divisible(line):
-    for i in range(len(line)-1):
-        x = line[i]
+def couples(line):
+    for i, x in enumerate(line):
         for y in line[i+1:]:
-            if x % y == 0:
-                return x // y
+            yield x, y
+            yield y, x
 
-            if y % x == 0:
-                return y // x
+
+def divisible(line):
+    for x, y in couples(line):
+        q, r = divmod(x, y)
+        if r == 0:
+            return q
 
 
 def solve(func, spreadsheet):
-    checksum = 0
-    for line in spreadsheet:
-        checksum += func(line)
-
-    return checksum
+    return sum(func(line) for line in spreadsheet)
 
 
 def part_one(spreadsheet):

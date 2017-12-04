@@ -1,11 +1,11 @@
-def iter_pairs(digits):
+def pairs(digits):
     for i in range(len(digits) - 1):
         yield digits[i], digits[i+1]
 
     yield digits[-1], digits[0]
 
 
-def iter_halfway(digits):
+def halfway(digits):
     half = len(digits) // 2
     for i in range(half):
         yield digits[i], digits[half+i]
@@ -15,20 +15,15 @@ def iter_halfway(digits):
 
 
 def solve(iterator, digits):
-    captcha = 0
-    for x, y in iterator(digits):
-        if x == y:
-            captcha += int(x)
-
-    return captcha
+    return sum(int(x) for x, y in iterator(digits) if x == y)
 
 
 def part_one(digits):
-    return solve(iter_pairs, digits)
+    return solve(pairs, digits)
 
 
 def part_two(digits):
-    return solve(iter_halfway, digits)
+    return solve(halfway, digits)
 
 
 if __name__ == '__main__':

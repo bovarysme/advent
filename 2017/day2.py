@@ -1,3 +1,6 @@
+import itertools
+
+
 def difference(line):
     mini, maxi = line[0], line[0]
     for value in line[1:]:
@@ -10,15 +13,9 @@ def difference(line):
     return maxi - mini
 
 
-def couples(line):
-    for i, x in enumerate(line):
-        for y in line[i+1:]:
-            yield x, y
-            yield y, x
-
-
 def divisible(line):
-    for x, y in couples(line):
+    for couple in itertools.combinations(line, 2):
+        x, y = max(couple), min(couple)
         q, r = divmod(x, y)
         if r == 0:
             return q

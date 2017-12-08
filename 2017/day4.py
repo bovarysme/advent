@@ -45,7 +45,7 @@ if __name__ == '__main__':
     assert part_two(['oiii ioii iioi iiio']) == 0
 
     with open('inputs/day4.txt', 'r') as f:
-        passphrases = [line.rstrip() for line in f.readlines()]
+        passphrases = [line.rstrip() for line in f]
 
     print('Answer for part one:', part_one(passphrases))
     print('Answer for part two:', part_two(passphrases))

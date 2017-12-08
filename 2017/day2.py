@@ -49,7 +49,7 @@ if __name__ == '__main__':
     with open('inputs/day2.txt', 'r') as f:
         spreadsheet = [
             [int(value) for value in line.rstrip().split()]
-            for line in f.readlines()
+            for line in f
         ]
 
     print('Answer for part one:', part_one(spreadsheet))

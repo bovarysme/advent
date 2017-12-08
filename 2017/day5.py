@@ -26,7 +26,7 @@ if __name__ == '__main__':
     assert part_two([0, 3, 0, 1, -3]) == 10
 
     with open('inputs/day5.txt', 'r') as f:
-        offsets = [int(offset.rstrip()) for offset in f.readlines()]
+        offsets = [int(offset.rstrip()) for offset in f]
 
     print('Answer for part one:', part_one(offsets[:]))
     print('Answer for part two:', part_two(offsets[:]))

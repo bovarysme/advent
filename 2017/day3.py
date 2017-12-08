@@ -23,15 +23,6 @@ def update(direction, limit):
     return direction, limit
 
 
-def neighbors(pos):
-    for x in range(pos[0]-1, pos[0]+2):
-        for y in range(pos[1]-1, pos[1]+2):
-            if (x, y) == pos:
-                continue
-
-            yield x, y
-
-
 def positions(value):
     direction = Direction.RIGHT
     pos = [0, 0]
@@ -55,6 +46,15 @@ def positions(value):
         if traveled >= limit:
             direction, limit = update(direction, limit)
             traveled = 0
+
+
+def neighbors(pos):
+    for x in range(pos[0]-1, pos[0]+2):
+        for y in range(pos[1]-1, pos[1]+2):
+            if (x, y) == pos:
+                continue
+
+            yield x, y
 
 
 def part_one(value):

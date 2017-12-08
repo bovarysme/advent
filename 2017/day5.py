@@ -21,9 +21,10 @@ def part_two(offsets):
 
 
 if __name__ == '__main__':
-    assert part_one([0, 3, 0, 1, -3]) == 5
+    offsets = [0, 3, 0, 1, -3]
 
-    assert part_two([0, 3, 0, 1, -3]) == 10
+    assert part_one(offsets[:]) == 5
+    assert part_two(offsets[:]) == 10
 
     with open('inputs/day5.txt', 'r') as f:
         offsets = [int(offset.rstrip()) for offset in f]

@@ -16,14 +16,13 @@ def solve(stream):
                 skip = True
             else:
                 chars += 1
-        else:
-            if char == '<':
-                garbage = True
-            if char == '{':
-                score += level
-                level += 1
-            elif char == '}':
-                level -= 1
+        elif char == '<':
+            garbage = True
+        elif char == '{':
+            score += level
+            level += 1
+        elif char == '}':
+            level -= 1
 
     return score, chars
 

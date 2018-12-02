@@ -4,19 +4,15 @@ def part_one(freqs):
 
 def part_two(freqs):
     result = 0
-    running = True
     visited = set([0])
 
-    while running:
+    while True:
         for freq in freqs:
             result += freq
             if result in visited:
-                running = False
-                break
+                return result
 
             visited.add(result)
-
-    return result
 
 
 def main():

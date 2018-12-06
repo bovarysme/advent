@@ -7,7 +7,6 @@ def opposites(a, b):
 
 def react(polymer, ignore=None):
     stack = []
-
     for unit in polymer:
         if unit.lower() == ignore:
             continue
